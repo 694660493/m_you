@@ -18,4 +18,11 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# 网易严选
+
+## day_01
+   * 拆分路由
+   * 写尾部组件  mint-ui 按需引入未完成  使用mint-ui Tabbar失败
+   * 使用rem适配
+   * tabs过滤选择器没写
+
