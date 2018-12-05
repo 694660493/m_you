@@ -25,4 +25,5 @@ npm run build --report
    * 写尾部组件  mint-ui 按需引入未完成  使用mint-ui Tabbar失败
    * 使用rem适配
    * tabs过滤选择器没写
+   * 轮播图
 
