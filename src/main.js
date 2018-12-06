@@ -23,7 +23,6 @@ new Vue({
   },
   components:{
     App,
-
   },
   template: '<App/>',
   router,

@@ -13,15 +13,16 @@ export default {
   async getCategory({commit}){
     //发送ajax请求获得数据
     var result=await reqCategory()
-    if(result.code===200) {
-      commit(GETCATEGORYDATE, {categoryData:result.data})
+    console.log(result);
+    if(result.data.code===200) {
+      commit(GETCATEGORYDATE, {categoryData:result.data.data})
     }
   },
   async getShiWu({commit}){
     //发送ajax请求获得数据
     var result=await reqShiWu()
-    if(result.code===200) {
-      commit(GETSHIWUDATA, {shiwuDataL:result.data})
+    if(result.data.code===200) {
+      commit(GETSHIWUDATA, {shiwuDataL:result.data.data})
     }
   }
 }

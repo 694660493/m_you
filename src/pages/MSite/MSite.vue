@@ -9,46 +9,16 @@
       <div class="loginBtn">登录</div>
     </div>
 
-    <div class="tabWrap" style="margin-top:1rem;position:fixed;left:0;top:0 ;width:100%;z-index: 10" >
+    <div class="tabWrap" style="margin-top:1rem;position:fixed;left:0;top:0 ;width:100%;z-index: 10">
       <div class="m-tabs  scroll">
         <header>
-          <div class="inner" style="position:relative;height:100%;width:100%;overflow:hidden;"
-               data-reactid=".0.0.0.1.1.0.0.0">
-            <div class="list" data-reactid=".0.0.0.1.1.0.0.0.0"
-                 style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
-              <div class="tab active" data-reactid=".0.0.0.1.1.0.0.0.0.$0"><span class="txt"
-                                                                                 data-reactid=".0.0.0.1.1.0.0.0.0.$0.0">推荐</span>
-              </div>
-              <div class="tab" data-reactid=".0.0.0.1.1.0.0.0.0.$1"><span class="txt"
-                                                                          data-reactid=".0.0.0.1.1.0.0.0.0.$1.0">居家</span>
-              </div>
-              <div class="tab" data-reactid=".0.0.0.1.1.0.0.0.0.$2"><span class="txt"
-                                                                          data-reactid=".0.0.0.1.1.0.0.0.0.$2.0">鞋包配饰</span>
-              </div>
-              <div class="tab" data-reactid=".0.0.0.1.1.0.0.0.0.$3"><span class="txt"
-                                                                          data-reactid=".0.0.0.1.1.0.0.0.0.$3.0">服装</span>
-              </div>
-              <div class="tab" data-reactid=".0.0.0.1.1.0.0.0.0.$4"><span class="txt"
-                                                                          data-reactid=".0.0.0.1.1.0.0.0.0.$4.0">电器</span>
-              </div>
-              <div class="tab" data-reactid=".0.0.0.1.1.0.0.0.0.$5"><span class="txt"
-                                                                          data-reactid=".0.0.0.1.1.0.0.0.0.$5.0">洗护</span>
-              </div>
-              <div class="tab" data-reactid=".0.0.0.1.1.0.0.0.0.$6"><span class="txt"
-                                                                          data-reactid=".0.0.0.1.1.0.0.0.0.$6.0">饮食</span>
-              </div>
-              <div class="tab" data-reactid=".0.0.0.1.1.0.0.0.0.$7"><span class="txt"
-                                                                          data-reactid=".0.0.0.1.1.0.0.0.0.$7.0">餐厨</span>
-              </div>
-              <div class="tab" data-reactid=".0.0.0.1.1.0.0.0.0.$8"><span class="txt"
-                                                                          data-reactid=".0.0.0.1.1.0.0.0.0.$8.0">婴童</span>
-              </div>
-              <div class="tab" data-reactid=".0.0.0.1.1.0.0.0.0.$9"><span class="txt"
-                                                                          data-reactid=".0.0.0.1.1.0.0.0.0.$9.0">文体</span>
-              </div>
-              <div class="tab" data-reactid=".0.0.0.1.1.0.0.0.0.$10"><span class="txt"
-                                                                           data-reactid=".0.0.0.1.1.0.0.0.0.$10.0">特色区</span>
-              </div>
+          <div class="inner" style="position:relative;height:100%;width:100%;overflow:hidden;">
+            <div class="list" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+              <!--active-->
+
+                <div class="tab " v-for="(cateItem,index) in msiteData.cateList" :key="index">
+                  <span class="txt">{{cateItem.name}}</span>
+                </div>
             </div>
           </div>
         </header>
@@ -64,297 +34,150 @@
       <div class="m-slide m-indexSlide" data-reactid=".0.1.0">
         <div class="slide-con" data-reactid=".0.1.0.0">
           <div class="swiper-container common-swiper-container swiper-container-horizontal" data-reactid=".0.1.0.0.0">
-            <div class="swiper-wrapper" data-reactid=".0.1.0.0.0.0"
-                 style="transform: translate3d(-2250px, 0px, 0px); transition-duration: 0ms;">
-              <div class="swiper-slide swiper-slide-duplicate" id="7" data-swiper-slide-index="7">
-                <img
-                  src="https://yanxuan.nosdn.127.net/089fdc9bfdc75ccfbe9c349d0096804b.jpg?watermark&type=1&gravity=northwest&dx=0&dy=0&image=YTRhMmIzYmI1Y2I1YTc4ZGM5MmE3Nzk2NzAwYTFiNjgucG5n|imageView&quality=75&thumbnail=750x0">
-              </div>
-              <div class="swiper-slide" id="0" data-swiper-slide-index="0"><img
-                src="https://yanxuan.nosdn.127.net/089fdc9bfdc75ccfbe9c349d0096804b.jpg?watermark&type=1&gravity=northwest&dx=0&dy=0&image=YTRhMmIzYmI1Y2I1YTc4ZGM5MmE3Nzk2NzAwYTFiNjgucG5n|imageView&quality=75&thumbnail=750x0">
-              </div>
-              <div class="swiper-slide swiper-slide-prev" id="1" data-swiper-slide-index="1"><img
-                src="https://yanxuan.nosdn.127.net/089fdc9bfdc75ccfbe9c349d0096804b.jpg?watermark&type=1&gravity=northwest&dx=0&dy=0&image=YTRhMmIzYmI1Y2I1YTc4ZGM5MmE3Nzk2NzAwYTFiNjgucG5n|imageView&quality=75&thumbnail=750x0">
-              </div>
-              <div class="swiper-slide swiper-slide-active" id="2" data-swiper-slide-index="2">
-                <img
-                  src="https://yanxuan.nosdn.127.net/a209d8ec4efb502140d086773cd04c76.jpg?watermark&type=1&gravity=northwest&dx=0&dy=0&image=YTRhMmIzYmI1Y2I1YTc4ZGM5MmE3Nzk2NzAwYTFiNjgucG5n|imageView&quality=75&thumbnail=750x0">
-              </div>
-              <div class="swiper-slide swiper-slide-next" id="3" data-swiper-slide-index="3"><img
-                src="https://yanxuan.nosdn.127.net/089fdc9bfdc75ccfbe9c349d0096804b.jpg?watermark&type=1&gravity=northwest&dx=0&dy=0&image=YTRhMmIzYmI1Y2I1YTc4ZGM5MmE3Nzk2NzAwYTFiNjgucG5n|imageView&quality=75&thumbnail=750x0">
-              </div>
-              <div class="swiper-slide" id="4" data-swiper-slide-index="4"><img
-                src="https://yanxuan.nosdn.127.net/089fdc9bfdc75ccfbe9c349d0096804b.jpg?watermark&type=1&gravity=northwest&dx=0&dy=0&image=YTRhMmIzYmI1Y2I1YTc4ZGM5MmE3Nzk2NzAwYTFiNjgucG5n|imageView&quality=75&thumbnail=750x0">
-              </div>
-              <div class="swiper-slide" id="5" data-swiper-slide-index="5"><img
-                src="https://yanxuan.nosdn.127.net/089fdc9bfdc75ccfbe9c349d0096804b.jpg?watermark&type=1&gravity=northwest&dx=0&dy=0&image=YTRhMmIzYmI1Y2I1YTc4ZGM5MmE3Nzk2NzAwYTFiNjgucG5n|imageView&quality=75&thumbnail=750x0">
-              </div>
-              <div class="swiper-slide" id="6" data-swiper-slide-index="6"><img
-                src="https://yanxuan.nosdn.127.net/5a2289149a59ca24ef2256674542e4cb.jpg?imageView&amp;quality=75&amp;thumbnail=750x0">
-              </div>
-              <div class="swiper-slide" id="7" data-swiper-slide-index="7"><img
-                src="https://yanxuan.nosdn.127.net/089fdc9bfdc75ccfbe9c349d0096804b.jpg?watermark&type=1&gravity=northwest&dx=0&dy=0&image=YTRhMmIzYmI1Y2I1YTc4ZGM5MmE3Nzk2NzAwYTFiNjgucG5n|imageView&quality=75&thumbnail=750x0">
-              </div>
-              <div class="swiper-slide swiper-slide-duplicate" id="0" data-swiper-slide-index="0">
-                <img
-                  src="https://yanxuan.nosdn.127.net/089fdc9bfdc75ccfbe9c349d0096804b.jpg?watermark&type=1&gravity=northwest&dx=0&dy=0&image=YTRhMmIzYmI1Y2I1YTc4ZGM5MmE3Nzk2NzAwYTFiNjgucG5n|imageView&quality=75&thumbnail=750x0">
+            <div class="swiper-wrapper" style="transform: translate3d(-2250px, 0px, 0px); transition-duration: 0ms;">
+              <div class="swiper-slide" v-for="(focus_item,index) in msiteData.focusList" :key="index"><img
+                :src="focus_item.picUrl">
               </div>
             </div>
             <div
               class="swiper-pagination common-swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"
               data-reactid=".0.1.0.0.0.1">
-              <span class="swiper-pagination-bullet"></span>
-              <span class="swiper-pagination-bullet"></span>
-              <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
-              <span class="swiper-pagination-bullet"></span>
-              <span class="swiper-pagination-bullet"></span>
-              <span class="swiper-pagination-bullet"></span>
-              <span class="swiper-pagination-bullet"></span>
-              <span class="swiper-pagination-bullet"></span>
+              <!--分页器经常会消失-->
+
             </div>
           </div>
         </div>
       </div>
     </div>
     <!--横边框-->
-    <div class="m-indexServicePolicy newUser active" data-reactid=".0.2">
-      <ul class="g-grow" data-reactid=".0.2.0">
-        <li class="item" data-reactid=".0.2.0.$0"><a data-reactid=".0.2.0.$0.0"><i
-          class="u-icon u-icon-servicePolicy-index"
-          style="background-image:url(http://yanxuan.nosdn.127.net/cae45612b8aae577d8bd73338e2fc02c.png);"
-          data-reactid=".0.2.0.$0.0.0"></i><span class="text" data-reactid=".0.2.0.$0.0.1">网易自营品牌</span></a></li>
-        <li class="item" data-reactid=".0.2.0.$1"><a data-reactid=".0.2.0.$1.0"><i
-          class="u-icon u-icon-servicePolicy-index"
-          style="background-image:url(http://yanxuan.nosdn.127.net/cae45612b8aae577d8bd73338e2fc02c.png);"
-          data-reactid=".0.2.0.$1.0.0"></i><span class="text" data-reactid=".0.2.0.$1.0.1">30天无忧退货</span></a></li>
-        <li class="item" data-reactid=".0.2.0.$2"><a data-reactid=".0.2.0.$2.0"><i
-          class="u-icon u-icon-servicePolicy-index"
-          style="background-image:url(http://yanxuan.nosdn.127.net/cae45612b8aae577d8bd73338e2fc02c.png);"
-          data-reactid=".0.2.0.$2.0.0"></i><span class="text" data-reactid=".0.2.0.$2.0.1">48小时快速退款</span></a></li>
+    <div class="m-indexServicePolicy newUser active">
+      <ul class="g-grow">
+        <li class="item" v-for="(policyItem,index) in msiteData.policyDescList" :key="index">
+          <a>
+            <i class="u-icon u-icon-servicePolicy-index"
+               :style="`background-image:url(${policyItem.icon});`"></i>
+            <span class="text">{{policyItem.desc}}</span>
+          </a>
+        </li>
       </ul>
     </div>
 
     <div class="m-kingKongModule"
-         style="background-image:url(http://yanxuan.nosdn.127.net/56cd3b1e32f4d2edd03915efcef04de0.png);background-size:100% 100%;"
-         data-reactid=".0.4.0">
-      <div class="m-carousel kingkongCarousel" data-reactid=".0.4.0.0">
-        <div class="swiper-container" data-reactid=".0.4.0.0.0">
-          <div class="swiper-wrapper" data-reactid=".0.4.0.0.0.0">
-            <div class="swiper-slide" data-reactid=".0.4.0.0.0.0.$0/=1$0"><a class="kingkong-item mb-9"
-                                                                             href="http://m.you.163.com/item/list?categoryId=1005000&amp;style=pd"
-                                                                             data-yxstat="{&quot;event_name&quot;:&quot;click_index_kingkong&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;name&quot;:&quot;居家&quot;,&quot;picUrl&quot;:&quot;http://yanxuan.nosdn.127.net/98b6a6fc32f1fea861934816729e2cf5.png&quot;,&quot;sequen&quot;:1,&quot;schemeUrl&quot;:&quot;http://m.you.163.com/item/list?categoryId=1005000&amp;style=pd&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;http://m.you.163.com/item/list?categoryId=1005000&amp;style=pd&quot;}"
-                                                                             data-reactid=".0.4.0.0.0.0.$0/=1$0.$0">
-              <div class="icon" data-reactid=".0.4.0.0.0.0.$0/=1$0.$0.0"><img class="img"
-                                                                              src="http://yanxuan.nosdn.127.net/98b6a6fc32f1fea861934816729e2cf5.png"
-                                                                              data-reactid=".0.4.0.0.0.0.$0/=1$0.$0.0.0">
-              </div>
-              <div class="txt" style="color:#333333;" data-reactid=".0.4.0.0.0.0.$0/=1$0.$0.1">居家</div>
-            </a><a class="kingkong-item mb-9" href="http://m.you.163.com/item/list?categoryId=1008000&amp;style=pd"
-                   data-yxstat="{&quot;event_name&quot;:&quot;click_index_kingkong&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;name&quot;:&quot;鞋包配饰&quot;,&quot;picUrl&quot;:&quot;http://yanxuan.nosdn.127.net/46d33b9a9fbb659fcbac37ec58d51e62.png&quot;,&quot;sequen&quot;:2,&quot;schemeUrl&quot;:&quot;http://m.you.163.com/item/list?categoryId=1008000&amp;style=pd&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;http://m.you.163.com/item/list?categoryId=1008000&amp;style=pd&quot;}"
-                   data-reactid=".0.4.0.0.0.0.$0/=1$0.$1">
-              <div class="icon" data-reactid=".0.4.0.0.0.0.$0/=1$0.$1.0"><img class="img"
-                                                                              src="http://yanxuan.nosdn.127.net/46d33b9a9fbb659fcbac37ec58d51e62.png"
-                                                                              data-reactid=".0.4.0.0.0.0.$0/=1$0.$1.0.0">
-              </div>
-              <div class="txt" style="color:#333333;" data-reactid=".0.4.0.0.0.0.$0/=1$0.$1.1">鞋包配饰</div>
-            </a><a class="kingkong-item mb-9" href="http://m.you.163.com/item/list?categoryId=1010000&amp;style=pd"
-                   data-yxstat="{&quot;event_name&quot;:&quot;click_index_kingkong&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;name&quot;:&quot;服装&quot;,&quot;picUrl&quot;:&quot;http://yanxuan.nosdn.127.net/31831ada59dc10319cba195620ed9ed0.png&quot;,&quot;sequen&quot;:3,&quot;schemeUrl&quot;:&quot;http://m.you.163.com/item/list?categoryId=1010000&amp;style=pd&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;http://m.you.163.com/item/list?categoryId=1010000&amp;style=pd&quot;}"
-                   data-reactid=".0.4.0.0.0.0.$0/=1$0.$2">
-              <div class="icon" data-reactid=".0.4.0.0.0.0.$0/=1$0.$2.0"><img class="img"
-                                                                              src="http://yanxuan.nosdn.127.net/31831ada59dc10319cba195620ed9ed0.png"
-                                                                              data-reactid=".0.4.0.0.0.0.$0/=1$0.$2.0.0">
-              </div>
-              <div class="txt" style="color:#333333;" data-reactid=".0.4.0.0.0.0.$0/=1$0.$2.1">服装</div>
-            </a><a class="kingkong-item mb-9" href="http://m.you.163.com/item/list?categoryId=1043000&amp;style=pd"
-                   data-yxstat="{&quot;event_name&quot;:&quot;click_index_kingkong&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;name&quot;:&quot;电器&quot;,&quot;picUrl&quot;:&quot;http://yanxuan.nosdn.127.net/45833c71d4b0d0de0755a20f893fa25f.png&quot;,&quot;sequen&quot;:4,&quot;schemeUrl&quot;:&quot;http://m.you.163.com/item/list?categoryId=1043000&amp;style=pd&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;http://m.you.163.com/item/list?categoryId=1043000&amp;style=pd&quot;}"
-                   data-reactid=".0.4.0.0.0.0.$0/=1$0.$3">
-              <div class="icon" data-reactid=".0.4.0.0.0.0.$0/=1$0.$3.0"><img class="img"
-                                                                              src="http://yanxuan.nosdn.127.net/45833c71d4b0d0de0755a20f893fa25f.png"
-                                                                              data-reactid=".0.4.0.0.0.0.$0/=1$0.$3.0.0">
-              </div>
-              <div class="txt" style="color:#333333;" data-reactid=".0.4.0.0.0.0.$0/=1$0.$3.1">电器</div>
-            </a><a class="kingkong-item mb-9" href="http://m.you.163.com/item/list?categoryId=1011000&amp;style=pd"
-                   data-yxstat="{&quot;event_name&quot;:&quot;click_index_kingkong&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;name&quot;:&quot;婴童&quot;,&quot;picUrl&quot;:&quot;http://yanxuan.nosdn.127.net/2fde77529e90a26427d1c02faa3bfbf6.png&quot;,&quot;sequen&quot;:5,&quot;schemeUrl&quot;:&quot;http://m.you.163.com/item/list?categoryId=1011000&amp;style=pd&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;http://m.you.163.com/item/list?categoryId=1011000&amp;style=pd&quot;}"
-                   data-reactid=".0.4.0.0.0.0.$0/=1$0.$4">
-              <div class="icon" data-reactid=".0.4.0.0.0.0.$0/=1$0.$4.0"><img class="img"
-                                                                              src="http://yanxuan.nosdn.127.net/2fde77529e90a26427d1c02faa3bfbf6.png"
-                                                                              data-reactid=".0.4.0.0.0.0.$0/=1$0.$4.0.0">
-              </div>
-              <div class="txt" style="color:#333333;" data-reactid=".0.4.0.0.0.0.$0/=1$0.$4.1">婴童</div>
-            </a><a class="kingkong-item" href="http://m.you.163.com/item/list?categoryId=1005002&amp;style=pd"
-                   data-yxstat="{&quot;event_name&quot;:&quot;click_index_kingkong&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;name&quot;:&quot;饮食&quot;,&quot;picUrl&quot;:&quot;http://yanxuan.nosdn.127.net/15e364ca93313bbd6e87dfcba7ae7b74.png&quot;,&quot;sequen&quot;:6,&quot;schemeUrl&quot;:&quot;http://m.you.163.com/item/list?categoryId=1005002&amp;style=pd&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;http://m.you.163.com/item/list?categoryId=1005002&amp;style=pd&quot;}"
-                   data-reactid=".0.4.0.0.0.0.$0/=1$0.$5">
-              <div class="icon" data-reactid=".0.4.0.0.0.0.$0/=1$0.$5.0"><img class="img"
-                                                                              src="http://yanxuan.nosdn.127.net/15e364ca93313bbd6e87dfcba7ae7b74.png"
-                                                                              data-reactid=".0.4.0.0.0.0.$0/=1$0.$5.0.0">
-              </div>
-              <div class="txt" style="color:#333333;" data-reactid=".0.4.0.0.0.0.$0/=1$0.$5.1">饮食</div>
-            </a><a class="kingkong-item" href="http://m.you.163.com/item/list?categoryId=1013001&amp;style=pd"
-                   data-yxstat="{&quot;event_name&quot;:&quot;click_index_kingkong&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;name&quot;:&quot;洗护&quot;,&quot;picUrl&quot;:&quot;http://yanxuan.nosdn.127.net/793bca13bb931475ea7f0c00299362bb.png&quot;,&quot;sequen&quot;:7,&quot;schemeUrl&quot;:&quot;http://m.you.163.com/item/list?categoryId=1013001&amp;style=pd&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;http://m.you.163.com/item/list?categoryId=1013001&amp;style=pd&quot;}"
-                   data-reactid=".0.4.0.0.0.0.$0/=1$0.$6">
-              <div class="icon" data-reactid=".0.4.0.0.0.0.$0/=1$0.$6.0"><img class="img"
-                                                                              src="http://yanxuan.nosdn.127.net/793bca13bb931475ea7f0c00299362bb.png"
-                                                                              data-reactid=".0.4.0.0.0.0.$0/=1$0.$6.0.0">
-              </div>
-              <div class="txt" style="color:#333333;" data-reactid=".0.4.0.0.0.0.$0/=1$0.$6.1">洗护</div>
-            </a><a class="kingkong-item" href="http://m.you.163.com/item/list?categoryId=1005001&amp;style=pd"
-                   data-yxstat="{&quot;event_name&quot;:&quot;click_index_kingkong&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;name&quot;:&quot;餐厨&quot;,&quot;picUrl&quot;:&quot;http://yanxuan.nosdn.127.net/fc3e359da08577228354da61ea912c99.png&quot;,&quot;sequen&quot;:8,&quot;schemeUrl&quot;:&quot;http://m.you.163.com/item/list?categoryId=1005001&amp;style=pd&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;http://m.you.163.com/item/list?categoryId=1005001&amp;style=pd&quot;}"
-                   data-reactid=".0.4.0.0.0.0.$0/=1$0.$7">
-              <div class="icon" data-reactid=".0.4.0.0.0.0.$0/=1$0.$7.0"><img class="img"
-                                                                              src="http://yanxuan.nosdn.127.net/fc3e359da08577228354da61ea912c99.png"
-                                                                              data-reactid=".0.4.0.0.0.0.$0/=1$0.$7.0.0">
-              </div>
-              <div class="txt" style="color:#333333;" data-reactid=".0.4.0.0.0.0.$0/=1$0.$7.1">餐厨</div>
-            </a><a class="kingkong-item" href="http://m.you.163.com/item/list?categoryId=1019000&amp;style=pd"
-                   data-yxstat="{&quot;event_name&quot;:&quot;click_index_kingkong&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;name&quot;:&quot;文体&quot;,&quot;picUrl&quot;:&quot;http://yanxuan.nosdn.127.net/97eb6fd2c7ea76a3a42b9dafa3bd6543.png&quot;,&quot;sequen&quot;:9,&quot;schemeUrl&quot;:&quot;http://m.you.163.com/item/list?categoryId=1019000&amp;style=pd&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;http://m.you.163.com/item/list?categoryId=1019000&amp;style=pd&quot;}"
-                   data-reactid=".0.4.0.0.0.0.$0/=1$0.$8">
-              <div class="icon" data-reactid=".0.4.0.0.0.0.$0/=1$0.$8.0"><img class="img"
-                                                                              src="http://yanxuan.nosdn.127.net/97eb6fd2c7ea76a3a42b9dafa3bd6543.png"
-                                                                              data-reactid=".0.4.0.0.0.0.$0/=1$0.$8.0.0">
-              </div>
-              <div class="txt" style="color:#333333;" data-reactid=".0.4.0.0.0.0.$0/=1$0.$8.1">文体</div>
-            </a><a class="kingkong-item" href="https://act.you.163.com/act/pub/6kyfPjwjEz.html"
-                   data-yxstat="{&quot;event_name&quot;:&quot;click_index_kingkong&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;name&quot;:&quot;超级会员&quot;,&quot;picUrl&quot;:&quot;http://yanxuan.nosdn.127.net/db5e2ce8c66f7db3f4282ecb24a64236.png&quot;,&quot;sequen&quot;:10,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/6kyfPjwjEz.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/6kyfPjwjEz.html&quot;}"
-                   data-reactid=".0.4.0.0.0.0.$0/=1$0.$9">
-              <div class="icon" data-reactid=".0.4.0.0.0.0.$0/=1$0.$9.0"><img class="img"
-                                                                              src="http://yanxuan.nosdn.127.net/db5e2ce8c66f7db3f4282ecb24a64236.png"
-                                                                              data-reactid=".0.4.0.0.0.0.$0/=1$0.$9.0.0">
-              </div>
-              <div class="txt" style="color:#333333;" data-reactid=".0.4.0.0.0.0.$0/=1$0.$9.1">超级会员</div>
-            </a></div>
+         style="background-image:url(http://yanxuan.nosdn.127.net/56cd3b1e32f4d2edd03915efcef04de0.png);background-size:100% 100%;">
+      <div class="m-carousel kingkongCarousel">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-if="msiteData.kingKongModule">
+              <a v-for="(kingkongItem,index) in msiteData.kingKongModule.kingKongList" :key="index" class="kingkong-item mb-9" :href="kingkongItem.schemeUrl" data-yxstat="{&quot;event_name&quot;:&quot;click_index_kingkong&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;name&quot;:&quot;居家&quot;,&quot;picUrl&quot;:&quot;http://yanxuan.nosdn.127.net/98b6a6fc32f1fea861934816729e2cf5.png&quot;,&quot;sequen&quot;:1,&quot;schemeUrl&quot;:&quot;http://m.you.163.com/item/list?categoryId=1005000&amp;style=pd&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;http://m.you.163.com/item/list?categoryId=1005000&amp;style=pd&quot;}">
+                <div class="icon">
+                  <img class="img" :src="kingkongItem.picUrl">
+                </div>
+                <div class="txt" style="color:#333333;">{{kingkongItem.text}}</div>
+              </a>
+            </div>
           </div>
-          <div class="swiper-pagination" data-reactid=".0.4.0.0.0.1"></div>
+          <div class="swiper-pagination" ></div>
         </div>
       </div>
     </div>
     <div
+      v-if="msiteData.bigPromotionModule"
       class="doubleT"
       style="width:10rem;height:4.408888888888889rem;background:url(https://yanxuan.nosdn.127.net/15435901919894506.png?imageView&amp;crop=0_0_750_496);background-size:100% 100%;"
       data-reactid=".0.4.1.$0">
-      <div data-reactid=".0.4.1.$0.0"><a class="promItem" style="width:100%;height:100%;"
-                                         href="https://act.you.163.com/act/pub/35lg3M4T9f.html"
+      <div data-reactid=".0.4.1.$0.0">
+        <a class="promItem" style="width:100%;height:100%;" :href="msiteData.bigPromotionModule.bigPromotionList[0].data.contents[0].schemeUrl"
                                          data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15435902145614507.gif&quot;,&quot;sequen&quot;:1,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/35lg3M4T9f.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/35lg3M4T9f.html&quot;}"
                                          data-reactid=".0.4.1.$0.0.$0">
-        <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.1.$0.0.$0.0"><img
-          data-original="https://yanxuan.nosdn.127.net/15435902145614507.gif"
-          data-src="https://yanxuan.nosdn.127.net/15435902145614507.gif" class="swiper-lazy"
-          data-reactid=".0.4.1.$0.0.$0.0.0" src="https://yanxuan.nosdn.127.net/15435902145614507.gif"
-          style="display: inline;"></div>
+        <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.1.$0.0.$0.0">
+          <img :data-original="msiteData.bigPromotionModule.bigPromotionList[0].data.contents[0].picUrl" :data-src="msiteData.bigPromotionModule.bigPromotionList[0].data.contents[0].picUrl" class="swiper-lazy" :src="msiteData.bigPromotionModule.bigPromotionList[0].data.contents[0].picUrl" style="display: inline;">
+        </div>
       </a></div>
     </div>
 
-    <div class="activity_02"
-         style="width:10rem;height:5.226666666666667rem;background:url(https://yanxuan.nosdn.127.net/15435901919894506.png?imageView&amp;crop=0_496_750_588);background-size:100% 100%;"
-         data-reactid=".0.4.1.$1">
-      <div data-reactid=".0.4.1.$1.0">
-        <a class="promItem promItem-ls"
-           href="https://act.you.163.com/act/pub/2Xu41pjyGt.html"
-           data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15439064549673720.png&quot;,&quot;sequen&quot;:4,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;}"
-           data-reactid=".0.4.1.$1.0.0">
-          <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.1.$1.0.0.0"><img
-            data-original="https://yanxuan.nosdn.127.net/15435902383484509.png"
-            data-src="https://yanxuan.nosdn.127.net/15435902383484509.png" class="swiper-lazy"
-            data-reactid=".0.4.1.$1.0.0.0.0" src="https://yanxuan.nosdn.127.net/15435902383484509.png"
-            style="display: inline;"></div>
+    <div class="activity_02" v-if="msiteData.bigPromotionModule" :style="`width:10rem;height:5.226666666666667rem;background:url(${msiteData.bigPromotionModule.backgroundUrl});background-size:100% 100%;`">
+      <div>
+        <a class="promItem promItem-ls" :href="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[0].schemeUrl" data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15439064549673720.png&quot;,&quot;sequen&quot;:4,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;}">
+          <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.1.$1.0.0.0">
+            <img class="swiper-lazy" :src="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[0].picUrl" style="display: inline;">
+          </div>
         </a>
-        <div class="promItem promItem-ls" data-reactid=".0.4.1.$1.0.1"><a class="item_zz"
-                                                                          href="https://m.you.163.com/item/saleRank"
-                                                                          data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15439064549673720.png&quot;,&quot;sequen&quot;:4,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;}"
-                                                                          data-reactid=".0.4.1.$1.0.1.0">
+        <div class="promItem promItem-ls"><a class="item_zz" :href="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[1].picUrl" data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15439064549673720.png&quot;,&quot;sequen&quot;:4,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;}">
           <div class="m-lazyload img img-s m-lazyload-loaded" data-reactid=".0.4.1.$1.0.1.0.0">
-            <img data-original="https://yanxuan.nosdn.127.net/15435902616394510.png"
-                 data-src="https://yanxuan.nosdn.127.net/15435902616394510.png" class="swiper-lazy"
-                 data-reactid=".0.4.1.$1.0.1.0.0.0" src="https://yanxuan.nosdn.127.net/15435902616394510.png"
+            <img class="swiper-lazy" :src="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[1].picUrl"
                  style="display: inline;">
           </div>
         </a>
-          <a class="item_zz" href="https://act.you.163.com/act/pub/1Ysh5rCDy3.html"
+          <a class="item_zz" :href="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[2].schemeUrl"
              data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15439064549673720.png&quot;,&quot;sequen&quot;:4,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;}"
              data-reactid=".0.4.1.$1.0.1.1">
-            <div class="m-lazyload img img-s m-lazyload-loaded" data-reactid=".0.4.1.$1.0.1.1.0"><img
-              data-original="https://yanxuan.nosdn.127.net/15439064549673720.png"
-              data-src="https://yanxuan.nosdn.127.net/15439064549673720.png" class="swiper-lazy"
-              data-reactid=".0.4.1.$1.0.1.1.0.0" src="https://yanxuan.nosdn.127.net/15439064549673720.png"
+            <div class="m-lazyload img img-s m-lazyload-loaded" data-reactid=".0.4.1.$1.0.1.1.0"><img class="swiper-lazy"
+              :src="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[2].picUrl"
               style="display: inline;margin-top: -0.04rem;"></div>
           </a></div>
       </div>
     </div>
 
-    <div
-      class="activity_03"
-      style="width:10rem;height:2.7111111111111112rem;background:url(https://yanxuan.nosdn.127.net/15435901919894506.png?imageView&amp;crop=0_1084_750_305);background-size:100% 100%;"
-      data-reactid=".0.4.1.$2">
-      <div data-reactid=".0.4.1.$2.0"><a class="promItem" style="width:50%;height:100%;"
-                                         href="https://act.you.163.com/act/pub/n5Ypk5ibe8.html"
-                                         data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15438955793172733.png&quot;,&quot;sequen&quot;:5,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/n5Ypk5ibe8.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/n5Ypk5ibe8.html&quot;}"
-                                         data-reactid=".0.4.1.$2.0.$0">
-        <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.1.$2.0.$0.0"><img
-          data-original="https://yanxuan.nosdn.127.net/15438955793172733.png"
-          data-src="https://yanxuan.nosdn.127.net/15438955793172733.png" class="swiper-lazy"
-          data-reactid=".0.4.1.$2.0.$0.0.0" src="https://yanxuan.nosdn.127.net/15438955793172733.png"
-          style="display: inline;"></div>
-      </a><a class="promItem" style="width:50%;height:100%;" href="https://act.you.163.com/act/pub/WWK5JewfVF.html"
-             data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15435903918604513.png&quot;,&quot;sequen&quot;:6,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/WWK5JewfVF.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/WWK5JewfVF.html&quot;}"
-             data-reactid=".0.4.1.$2.0.$1">
-        <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.1.$2.0.$1.0"><img
-          data-original="https://yanxuan.nosdn.127.net/15435903918604513.png"
-          data-src="https://yanxuan.nosdn.127.net/15435903918604513.png" class="swiper-lazy"
-          data-reactid=".0.4.1.$2.0.$1.0.0" src="https://yanxuan.nosdn.127.net/15435903918604513.png"
-          style="display: inline;"></div>
-      </a></div>
+    <div class="activity_03" v-if="msiteData.bigPromotionModule"
+      :style="`width:10rem;height:2.7111111111111112rem;background:url(${msiteData.bigPromotionModule.backgroundUrl});background-size:100% 100%;`">
+      <div>
+        <a class="promItem" style="width:50%;height:100%;" :href="msiteData.bigPromotionModule.bigPromotionList[2].data.contents[0].schemeUrl" data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15438955793172733.png&quot;,&quot;sequen&quot;:5,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/n5Ypk5ibe8.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/n5Ypk5ibe8.html&quot;}">
+        <div class="m-lazyload img m-lazyload-loaded">
+          <img class="swiper-lazy" data-reactid=".0.4.1.$2.0.$0.0.0" :src="msiteData.bigPromotionModule.bigPromotionList[2].data.contents[0].picUrl" style="display: inline;">
+        </div>
+        </a>
+        <a class="promItem" style="width:50%;height:100%;" :href="msiteData.bigPromotionModule.bigPromotionList[2].data.contents[1].schemeUrl" data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15435903918604513.png&quot;,&quot;sequen&quot;:6,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/WWK5JewfVF.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/WWK5JewfVF.html&quot;}">
+        <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.1.$2.0.$1.0">
+          <img class="swiper-lazy"
+          data-reactid=".0.4.1.$2.0.$1.0.0" :src="msiteData.bigPromotionModule.bigPromotionList[2].data.contents[1].picUrl"
+          style="display: inline;">
+        </div>
+        </a>
+      </div>
     </div>
 
-    <div class="m-freshmanModule m-indexFloor" data-reactid=".0.4.2">
-      <div class="moduleTitle" data-reactid=".0.4.2.0"><span class="txt" data-reactid=".0.4.2.0.0">新人专享礼</span></div>
-      <div class="content" data-reactid=".0.4.2.1"><a class="left" href="javascript:void(0)" data-reactid=".0.4.2.1.0">
-        <div class="name" data-reactid=".0.4.2.1.0.0">新人专享礼包</div>
-        <div class="imgWrap" data-reactid=".0.4.2.1.0.1">
-          <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.2.1.0.1.0"><img
-            data-original="//yanxuan.nosdn.127.net/d074d02fb86bff9bfbf4fa3010d1e1e6.png"
-            data-src="//yanxuan.nosdn.127.net/d074d02fb86bff9bfbf4fa3010d1e1e6.png" class="swiper-lazy"
-            data-reactid=".0.4.2.1.0.1.0.0" src="//yanxuan.nosdn.127.net/d074d02fb86bff9bfbf4fa3010d1e1e6.png"
-            style="display: inline;"></div>
-          <div class="animate" data-reactid=".0.4.2.1.0.1.1"></div>
+    <div class="m-freshmanModule m-indexFloor">
+      <div class="moduleTitle"><span class="txt">新人专享礼</span></div>
+      <div class="content">
+        <a class="left" href="javascript:void(0)">
+        <div class="name">新人专享礼包</div>
+        <div class="imgWrap">
+          <div class="m-lazyload img m-lazyload-loaded">
+            <img class="swiper-lazy" src="//yanxuan.nosdn.127.net/d074d02fb86bff9bfbf4fa3010d1e1e6.png"
+            style="display: inline;">
+          </div>
+          <div class="animate"></div>
         </div>
       </a>
-        <div class="right" data-reactid=".0.4.2.1.1">
-          <div class="module1" data-reactid=".0.4.2.1.1.0"><a class="m-activityItem" href="javascript:void(0)"
-                                                              style="background-image:url();background-size:100% 100%;"
-                                                              data-reactid=".0.4.2.1.1.0.0">
-            <div class="picWrap" data-reactid=".0.4.2.1.1.0.0.0">
-              <div class="m-lazyload pic m-lazyload-loaded" data-reactid=".0.4.2.1.1.0.0.0.0"><img
-                data-original="http://yanxuan.nosdn.127.net/d50517d5b6d49c2d571cde37fdb54841.png"
-                data-src="http://yanxuan.nosdn.127.net/d50517d5b6d49c2d571cde37fdb54841.png" class="swiper-lazy"
-                data-reactid=".0.4.2.1.1.0.0.0.0.0"
-                src="http://yanxuan.nosdn.127.net/d50517d5b6d49c2d571cde37fdb54841.png" style="display: inline;"></div>
-              <div class="discount" data-reactid=".0.4.2.1.1.0.0.0.1">
-                <div class="line1" data-reactid=".0.4.2.1.1.0.0.0.1.0">¥137</div>
-                <div class="line2" data-reactid=".0.4.2.1.1.0.0.0.1.1">¥249</div>
+
+        <div class="right">
+          <div class="module1"><a class="m-activityItem" href="javascript:void(0)" style="background-size:100% 100%;">
+            <div class="picWrap">
+              <div class="m-lazyload pic m-lazyload-loaded">
+                <img class="swiper-lazy" src="http://yanxuan.nosdn.127.net/d50517d5b6d49c2d571cde37fdb54841.png" style="display: inline;"></div>
+              <div class="discount">
+                <div class="line1">¥137</div>
+                <div class="line2">¥249</div>
               </div>
             </div>
-            <div class="cnt" data-reactid=".0.4.2.1.1.0.0.1">
-              <div class="title" data-reactid=".0.4.2.1.1.0.0.1.0">福利社</div>
-              <div class="subTitle" data-reactid=".0.4.2.1.1.0.0.1.1">今日特价</div>
-              <span data-reactid=".0.4.2.1.1.0.0.1.3"></span></div>
+            <div class="cnt">
+              <div class="title">福利社</div>
+              <div class="subTitle">今日特价</div>
+              <span></span></div>
           </a></div>
-          <div class="module2" data-reactid=".0.4.2.1.1.1"><a class="m-activityItem" href="javascript:void(0)"
-                                                              style="background-image:url(undefined);background-size:100% 100%;"
-                                                              data-reactid=".0.4.2.1.1.1.0">
-            <div class="picWrap" data-reactid=".0.4.2.1.1.1.0.0">
-              <div class="m-lazyload pic m-lazyload-loaded" data-reactid=".0.4.2.1.1.1.0.0.0"><img
-                data-original="http://yanxuan.nosdn.127.net/589f0990b8ba1d354a698731afacd2d4.png"
-                data-src="http://yanxuan.nosdn.127.net/589f0990b8ba1d354a698731afacd2d4.png" class="swiper-lazy"
-                data-reactid=".0.4.2.1.1.1.0.0.0.0"
+          <div class="module2"><a class="m-activityItem" href="javascript:void(0)" style="background-size:100% 100%;">
+            <div class="picWrap">
+              <div class="m-lazyload pic m-lazyload-loaded"><img class="swiper-lazy"
                 src="http://yanxuan.nosdn.127.net/589f0990b8ba1d354a698731afacd2d4.png" style="display: inline;"></div>
-              <div class="discount" data-reactid=".0.4.2.1.1.1.0.0.1">
-                <div class="line1" data-reactid=".0.4.2.1.1.1.0.0.1.0">¥1</div>
-                <div class="line2" data-reactid=".0.4.2.1.1.1.0.0.1.1">¥9</div>
+              <div class="discount">
+                <div class="line1">¥1</div>
+                <div class="line2">¥9</div>
               </div>
             </div>
-            <div class="cnt" data-reactid=".0.4.2.1.1.1.0.1">
-              <div class="title" data-reactid=".0.4.2.1.1.1.0.1.0">新人拼团</div>
-              <div class="subTitle" data-reactid=".0.4.2.1.1.1.0.1.1"></div>
-              <div class="tag" data-reactid=".0.4.2.1.1.1.0.1.3">1元起包邮</div>
+            <div class="cnt">
+              <div class="title">新人拼团</div>
+              <div class="subTitle"></div>
+              <div class="tag">1元起包邮</div>
             </div>
           </a></div>
         </div>
@@ -365,6 +188,7 @@
 </template>
 
 <script>
+  import {mapState} from "vuex"
   import 'swiper/dist/css/swiper.min.css'
   import Swiper from "swiper"
   import BScroll from 'better-scroll'
@@ -380,19 +204,20 @@
           click: true,
           scrollX: true, // 水平滑动
         });
-
-//        new BScroll('.g-grow', {
-//          click: true,
-//        });
         new Swiper('.swiper-container', {
           loop: true, // 循环模式选项
           // 如果需要分页器
           pagination: {
+            //todo 轮播图和滑动导航条有问题，一开始不起作用，刷新一下就起作用
             el: '.swiper-pagination',
+
           }
         })
       })
 
+    },
+    computed: {
+      ...mapState(["msiteData"])
     }
   }
 </script>
@@ -543,15 +368,23 @@
                 top: 50%;
                 transform: translateY(-50%);
                 background-color: #f9f9f9;
-        .swiper-pagination
-          bottom: .4rem;
-          width: 100%;
-          left: 0;
-          position: absolute;
-          text-align: center;
-          transition: .3s;
-          transform: translate3d(0, 0, 0);
-          z-index: 10;
+          .swiper-pagination
+            transition: .3s;
+            bottom: .4rem;
+            width: 100%;
+            left: 0;
+            position: absolute;
+            text-align: center;
+            z-index: 10;
+            .swiper-pagination-bullet
+              margin: 0 .13333rem 0 0;
+              cursor: pointer;
+              width: .53333rem;
+              height: .05333rem;
+              display: inline-block;
+              background: #fff;
+              opacity: .4;
+              border-radius: 0;
 
   .m-indexServicePolicy
     background: #FFEDDB;
@@ -727,6 +560,7 @@
             display: inline;
             width: 100%;
             height: auto;
+
   .m-freshmanModule
     background-color: #fff;
     margin-bottom: .26667rem;
