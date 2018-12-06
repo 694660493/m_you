@@ -1,65 +1,99 @@
 <template>
-    <div class="wrapper" style="font-size: 24px;">
-      <div class="g-row">
-        <!--头部-->
-        <div class="hdWraper" style="height:44px">
-          <div class="m-hd">
-            <div class="m-itemCateListHd">
-              <div class="m-topSearchIpt ipt">
-                <i class="icon"></i>
-                <span class="placeholder">搜索商品, 共19900款好物</span>
-              </div>
+  <div class="wrapper" style="font-size: 24px;">
+    <div class="g-row">
+      <!--头部-->
+      <div class="hdWraper" style="height:44px">
+        <div class="m-hd">
+          <div class="m-itemCateListHd">
+            <div class="m-topSearchIpt ipt">
+              <i class="icon"></i>
+              <span class="placeholder">搜索商品, 共19900款好物</span>
             </div>
-          </div>
-        </div>
-        <!--侧边栏-->
-        <div class="m-cateNavVertWrap">
-          <div style="position:relative;height:100%;width:100%;overflow:hidden;">
-            <ul class="m-cateNavVert">
-              <li class="item" v-for="(category,index) in categoryData" :key="index">
-                <a class="txt" :href="`/item/cateList?categoryId=${category.id}`">{{category.name}}</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!--右边主体-->
-        <div class="m-subCateList" v-if="categoryData[0]">
-          <div class="banner" :style="`background-image:url(${categoryData[0].wapBannerUrl});`">
-            <div class="cnt">
-            </div>
-          </div>
-          <div class="cateList">
-            <ul class="list">
-              <li class="cateItem" v-for="(subCate,index) in categoryData[0].subCateList" :key="index">
-                <a href="#">
-                  <div class="cateImgWrapper">
-                    <img :src="subCate.wapBannerUrl" alt="" class="cateImg">
-                  </div>
-                  <div class="name">
-                    {{subCate.name}}
-                  </div>
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
+      <!--侧边栏-->
+      <div class="m-cateNavVertWrap">
+        <div style="position:relative;height:100%;width:100%;overflow:hidden;">
+          <ul class="m-cateNavVert">
+            <li class="item" v-for="(category,index) in categoryData" :key="index">
+              <a class="txt" :href="`/#/category?categoryId=${category.id}`">{{category.name}}</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <!--右边主体-->
+      <div class="m-subCateList" v-if="categoryData[0]">
+        <div class="banner" :style="`background-image:url(${categoryData[0].wapBannerUrl});`">
+          <div class="cnt">
+          </div>
+        </div>
+        <!--专区结构-->
+        <div class="cateList">
+          <ul class="list">
+            <li class="cateItem" v-for="(subCate,index) in categoryData[getIndex].subCateList" :key="index">
+
+              <a href="#" v-if="getIndex<5">
+                <div class="cateImgWrapper">
+                  <img :src="subCate.wapBannerUrl" alt="" class="cateImg">
+                </div>
+                <div class="name">
+                  {{subCate.name}}
+                </div>
+              </a>
+              <!--下面结构-->
+              <div v-else>
+                <div class="cateList">
+                  <div class="hd">推荐</div>
+                  <ul class="list">
+                    <li class="cateItem">
+                      <a>
+                        <div class="cateImgWrapper"><img src="http://yanxuan.nosdn.127.net/872e180d7cec9b022dae7872bc3173a4.png?imageView&amp;quality=85&amp;thumbnail=144x144"
+                          alt="" class="cateImg"></div>
+                        <div class="name">热销榜单</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-    import {mapState} from "vuex"
-    export default {
-      name: "Category",
-      mounted(){
-        this.$nextTick(()=>{
-          this.$store.dispatch("getCategory");
+  import {mapState} from "vuex"
+
+  export default {
+    name: "Category",
+    mounted() {
+      this.$nextTick(() => {
+        this.$store.dispatch("getCategory");
+      })
+    },
+    computed: {
+      ...mapState(["categoryData"]),
+      getIndex() {
+        let flag = -1;
+        let path = this.$route.fullPath;
+        let id = this.$route.fullPath.substring(path.indexOf("=") + 1, path.length)
+        if (id == "/category") {
+          console.log("进入这里");
+          return 0;
+        }
+        this.categoryData.forEach(function (categoryItem, index) {
+          if (categoryItem.id == id) {
+            flag = index
+          }
         })
-      },
-      computed:{
-        ...mapState(["categoryData"]),
+        return flag;
       }
     }
+  }
 </script>
 
 <style scoped lang="stylus">
@@ -70,7 +104,7 @@
     position: relative;
     .hdWraper
       .m-hd
-        position fixed!important
+        position fixed !important
         width 100%
         top 0
         left 0
@@ -125,7 +159,7 @@
       &::after
         content: '';
         position: absolute;
-        background-color: rgba(0,0,0,.15);
+        background-color: rgba(0, 0, 0, .15);
         top: 0;
         bottom: 0;
         width: 1px;
@@ -175,6 +209,43 @@
           font-size: 0;
           width: 1.92rem;
           vertical-align: top;
+          .cateList
+            margin-bottom: .16rem;
+            .hd
+              white-space: nowrap;
+              max-width: 7.04rem;
+              padding-bottom: .10667rem;
+              margin-bottom: .32rem;
+              text-align: left;
+              font-size: .37333rem;
+              font-weight: 700;
+              border-bottom: 1px solid #d9d9d9;
+            .list
+              .cateItem
+                display: inline-block;
+                margin-right: .45333rem;
+                font-size: 0;
+                width: 1.92rem;
+                vertical-align: top;
+                .cateImgWrapper
+                  width: 1.92rem;
+                  height: 1.92rem;
+                  img
+                    display: block;
+                    width: 100%;
+                    background: #fff;
+                    height: 100%;
+                .name
+                  height: .96rem;
+                  font-size: .32rem;
+                  text-align: center;
+                  line-height: .48rem;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 2;
+                  -webkit-box-orient: vertical;
+                  color: #333;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
           .cateImgWrapper
             width: 1.92rem;
             height: 1.92rem;

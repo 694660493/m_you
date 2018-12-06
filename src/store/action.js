@@ -13,7 +13,6 @@ export default {
   async getCategory({commit}){
     //发送ajax请求获得数据
     var result=await reqCategory()
-    console.log(result);
     if(result.data.code===200) {
       commit(GETCATEGORYDATE, {categoryData:result.data.data})
     }
