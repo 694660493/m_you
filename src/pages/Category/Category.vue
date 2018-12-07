@@ -25,16 +25,16 @@
       </div>
       <!--右边主体-->
       <div class="m-subCateList" v-if="categoryData[0]">
-        <div class="banner" :style="`background-image:url(${categoryData[0].wapBannerUrl});`">
+        <div class="banner" :style="`background-image:url(${categoryData[getIndex].wapBannerUrl});`">
           <div class="cnt">
           </div>
         </div>
         <!--专区结构-->
-        <div class="cateList">
+        <div class="cateList"  v-if="getIndex!==5">
           <ul class="list">
             <li class="cateItem" v-for="(subCate,index) in categoryData[getIndex].subCateList" :key="index">
 
-              <a href="#" v-if="getIndex<5">
+              <a href="#">
                 <div class="cateImgWrapper">
                   <img :src="subCate.wapBannerUrl" alt="" class="cateImg">
                 </div>
@@ -42,23 +42,26 @@
                   {{subCate.name}}
                 </div>
               </a>
-              <!--下面结构-->
-              <div v-else>
-                <div class="cateList">
-                  <div class="hd">推荐</div>
-                  <ul class="list">
-                    <li class="cateItem">
-                      <a>
-                        <div class="cateImgWrapper"><img src="http://yanxuan.nosdn.127.net/872e180d7cec9b022dae7872bc3173a4.png?imageView&amp;quality=85&amp;thumbnail=144x144"
-                          alt="" class="cateImg"></div>
-                        <div class="name">热销榜单</div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+
             </li>
           </ul>
+        </div>
+        <!--下面结构-->
+        <div v-else>
+
+          <div class="cateList" v-for="(category,index) in categoryData[getIndex].subCateList" :key="index">
+            <div class="hd">{{category.header}}</div>
+            <ul class="list">
+              <li class="cateItem" v-for="(item,index) in category.cateItems" :key="index">
+                <a>
+                  <div class="cateImgWrapper">
+                    <img :src="item.imgSrc" alt="" class="cateImg">
+                  </div>
+                  <div class="name">{{item.name}}</div>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -82,7 +85,7 @@
         let path = this.$route.fullPath;
         let id = this.$route.fullPath.substring(path.indexOf("=") + 1, path.length)
         if (id == "/category") {
-          console.log("进入这里");
+//          console.log("进入这里");
           return 0;
         }
         this.categoryData.forEach(function (categoryItem, index) {

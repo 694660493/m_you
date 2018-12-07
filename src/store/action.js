@@ -21,7 +21,7 @@ export default {
     //发送ajax请求获得数据
     var result=await reqShiWu()
     if(result.data.code===200) {
-      commit(GETSHIWUDATA, {shiwuDataL:result.data.data})
+      commit(GETSHIWUDATA, {shiwuData:result.data.data})
     }
   }
 }

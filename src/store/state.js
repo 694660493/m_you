@@ -1,5 +1,5 @@
 export default{
   msiteData:{},
   categoryData:[],
-  shiwuDataL:[],
+  shiwuData:[],
 }

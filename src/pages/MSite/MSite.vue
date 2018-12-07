@@ -198,23 +198,27 @@
     mounted() {
       //触发action
       this.$store.dispatch("getMsite");
-      this.$nextTick(() => {
-        //首页导航滑动
-        new BScroll('.inner', {
-          click: true,
-          scrollX: true, // 水平滑动
-        });
-        new Swiper('.swiper-container', {
-          loop: true, // 循环模式选项
-          // 如果需要分页器
-          pagination: {
-            //todo 轮播图和滑动导航条有问题，一开始不起作用，刷新一下就起作用
-            el: '.swiper-pagination',
 
-          }
+    },
+    watch:{
+      msiteData:function () {
+        this.$nextTick(() => {
+          //todo:理解有问题 首页导航滑动
+          new BScroll('.inner', {
+            click: true,
+            scrollX: true, // 水平滑动
+          });
+          new Swiper('.swiper-container', {
+            loop: true, // 循环模式选项
+            // 如果需要分页器
+            pagination: {
+              //todo 轮播图和滑动导航条有问题，一开始不起作用，刷新一下就起作用
+              el: '.swiper-pagination',
+
+            }
+          })
         })
-      })
-
+      }
     },
     computed: {
       ...mapState(["msiteData"])

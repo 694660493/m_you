@@ -8,7 +8,7 @@ export default {
   [GETCATEGORYDATE](state,{categoryData}){
     state.categoryData=categoryData;
   },
-  [GETSHIWUDATA](state,{shiwuDataL}){
-    state.shiwuDataL=shiwuDataL;
+  [GETSHIWUDATA](state,{shiwuData}){
+    state.shiwuData=shiwuData;
   }
 }

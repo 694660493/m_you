@@ -35,7 +35,7 @@
       <a href="javascript:;" class="guide_item" @click="goTo(`/profile`)" :class="{on:isEvent(`/profile`)}">
         <span class="item_icon">
           <svg class="icon" aria-hidden="true" >
-            <use xlink:href="#icon-geren"></use>
+            <use xlink:href="#icon-gerenyonghutouxiang"></use>
           </svg>
         </span>
         <span>个人</span>
