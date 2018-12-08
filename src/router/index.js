@@ -8,6 +8,7 @@ const Distinguish=()=> import("../pages/Distinguish/Distinguish.vue")
 const Cart=()=> import("../pages/Cart/Cart.vue")
 const Profile=()=> import("../pages/Profile/Profile.vue")
 const Login=()=> import("../pages/Login/Login.vue")
+const search=()=> import("../pages/search/search.vue")
 const notfount=()=> import("../components/notfount/notfount.vue")
 
 Vue.use(VueRouter) //在vue中使用路由
@@ -22,9 +23,9 @@ export default new VueRouter({
     {path:"/cart",component:Cart},
     {path:"/profile",component:Profile},
     {path:"/login",component:Login},
+    {path:"/search",component:search},
     {path:"/",redirect:"/msite"},
     {path:"/*",name:"notfount",component:notfount},
-
 
   ]
 })

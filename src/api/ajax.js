@@ -20,6 +20,7 @@ export default function Ajax(url,data={},method="GET"){
     if(lastStr){
       url=url+"?"+lastStr;
     }
+
     //param参数(不写试试)
     return axios.get(url)
   }else if(method="POST"){

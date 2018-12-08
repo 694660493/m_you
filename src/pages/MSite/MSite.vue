@@ -8,20 +8,41 @@
       </div>
       <div class="loginBtn">登录</div>
     </div>
-
     <div class="tabWrap" style="margin-top:1rem;position:fixed;left:0;top:0 ;width:100%;z-index: 10">
       <div class="m-tabs  scroll">
+        <transition name="fade">
+          <div class="hiddenTabList" v-if="isShowMore">
+            <div class="tabAlter">全部频道</div>
+            <div class="moreCate">
+              <div class="cateTag">推荐</div>
+              <div class="cateTag">居家</div>
+              <div class="cateTag">鞋包配饰</div>
+              <div class="cateTag">服装</div>
+              <div class="cateTag">电器</div>
+              <div class="cateTag">洗护</div>
+              <div class="cateTag">饮食</div>
+              <div class="cateTag">餐厨</div>
+              <div class="cateTag">婴童</div>
+              <div class="cateTag">文体</div>
+              <div class="cateTag">特色区</div>
+            </div>
+          </div>
+        </transition>
         <header>
           <div class="inner" style="position:relative;height:100%;width:100%;overflow:hidden;">
-            <div class="list" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+            <div class="list">
               <!--active-->
 
-                <div class="tab " v-for="(cateItem,index) in msiteData.cateList" :key="index">
-                  <span class="txt">{{cateItem.name}}</span>
-                </div>
+              <div class="tab " v-for="(cateItem,index) in msiteData.cateList" :key="index">
+                <span class="txt">{{cateItem.name}}</span>
+              </div>
             </div>
           </div>
         </header>
+        <i class="showList" style="transition: all .5s" @click="handleC">
+          <img src="./img/bottom.png" alt="">
+        </i>
+
       </div>
       <div class="toggleWrap" data-reactid=".0.0.0.1.1.1">
         <div class="linear" data-reactid=".0.0.0.1.1.1.0"></div>
@@ -30,160 +51,186 @@
         </div>
       </div>
     </div>
-    <div class="slideWarp" data-reactid=".0.1" style="margin-top: 2.1rem">
-      <div class="m-slide m-indexSlide" data-reactid=".0.1.0">
-        <div class="slide-con" data-reactid=".0.1.0.0">
-          <div class="swiper-container common-swiper-container swiper-container-horizontal" data-reactid=".0.1.0.0.0">
-            <div class="swiper-wrapper" style="transform: translate3d(-2250px, 0px, 0px); transition-duration: 0ms;">
-              <div class="swiper-slide" v-for="(focus_item,index) in msiteData.focusList" :key="index"><img
-                :src="focus_item.picUrl">
-              </div>
-            </div>
-            <div
-              class="swiper-pagination common-swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"
-              data-reactid=".0.1.0.0.0.1">
-              <!--分页器经常会消失-->
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--横边框-->
-    <div class="m-indexServicePolicy newUser active">
-      <ul class="g-grow">
-        <li class="item" v-for="(policyItem,index) in msiteData.policyDescList" :key="index">
-          <a>
-            <i class="u-icon u-icon-servicePolicy-index"
-               :style="`background-image:url(${policyItem.icon});`"></i>
-            <span class="text">{{policyItem.desc}}</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="m-kingKongModule"
-         style="background-image:url(http://yanxuan.nosdn.127.net/56cd3b1e32f4d2edd03915efcef04de0.png);background-size:100% 100%;">
-      <div class="m-carousel kingkongCarousel">
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" v-if="msiteData.kingKongModule">
-              <a v-for="(kingkongItem,index) in msiteData.kingKongModule.kingKongList" :key="index" class="kingkong-item mb-9" :href="kingkongItem.schemeUrl" data-yxstat="{&quot;event_name&quot;:&quot;click_index_kingkong&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;name&quot;:&quot;居家&quot;,&quot;picUrl&quot;:&quot;http://yanxuan.nosdn.127.net/98b6a6fc32f1fea861934816729e2cf5.png&quot;,&quot;sequen&quot;:1,&quot;schemeUrl&quot;:&quot;http://m.you.163.com/item/list?categoryId=1005000&amp;style=pd&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;http://m.you.163.com/item/list?categoryId=1005000&amp;style=pd&quot;}">
-                <div class="icon">
-                  <img class="img" :src="kingkongItem.picUrl">
+    <div class="outer-wrap" style="height: 10rem">
+      <div class="inner_wrap">
+        <div class="slideWarp" style="margin-top: 2.1rem">
+          <div class="m-slide m-indexSlide" data-reactid=".0.1.0">
+            <div class="slide-con" data-reactid=".0.1.0.0">
+              <div class="swiper-container common-swiper-container swiper-container-horizontal">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" v-for="(focus_item,index) in msiteData.focusList" :key="index">
+                    <img :src="focus_item.picUrl">
+                  </div>
                 </div>
-                <div class="txt" style="color:#333333;">{{kingkongItem.text}}</div>
+                <div
+                  class="swiper-pagination common-swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+                  <!--分页器经常会消失-->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--横边框-->
+        <div class="m-indexServicePolicy newUser active">
+          <ul class="g-grow">
+            <li class="item" v-for="(policyItem,index) in msiteData.policyDescList" :key="index">
+              <a>
+                <i class="u-icon u-icon-servicePolicy-index"
+                   :style="`background-image:url(${policyItem.icon});`"></i>
+                <span class="text">{{policyItem.desc}}</span>
               </a>
-            </div>
-          </div>
-          <div class="swiper-pagination" ></div>
+            </li>
+          </ul>
         </div>
-      </div>
-    </div>
-    <div
-      v-if="msiteData.bigPromotionModule"
-      class="doubleT"
-      style="width:10rem;height:4.408888888888889rem;background:url(https://yanxuan.nosdn.127.net/15435901919894506.png?imageView&amp;crop=0_0_750_496);background-size:100% 100%;"
-      data-reactid=".0.4.1.$0">
-      <div data-reactid=".0.4.1.$0.0">
-        <a class="promItem" style="width:100%;height:100%;" :href="msiteData.bigPromotionModule.bigPromotionList[0].data.contents[0].schemeUrl"
-                                         data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15435902145614507.gif&quot;,&quot;sequen&quot;:1,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/35lg3M4T9f.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/35lg3M4T9f.html&quot;}"
-                                         data-reactid=".0.4.1.$0.0.$0">
-        <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.1.$0.0.$0.0">
-          <img :data-original="msiteData.bigPromotionModule.bigPromotionList[0].data.contents[0].picUrl" :data-src="msiteData.bigPromotionModule.bigPromotionList[0].data.contents[0].picUrl" class="swiper-lazy" :src="msiteData.bigPromotionModule.bigPromotionList[0].data.contents[0].picUrl" style="display: inline;">
-        </div>
-      </a></div>
-    </div>
 
-    <div class="activity_02" v-if="msiteData.bigPromotionModule" :style="`width:10rem;height:5.226666666666667rem;background:url(${msiteData.bigPromotionModule.backgroundUrl});background-size:100% 100%;`">
-      <div>
-        <a class="promItem promItem-ls" :href="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[0].schemeUrl" data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15439064549673720.png&quot;,&quot;sequen&quot;:4,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;}">
-          <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.1.$1.0.0.0">
-            <img class="swiper-lazy" :src="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[0].picUrl" style="display: inline;">
-          </div>
-        </a>
-        <div class="promItem promItem-ls"><a class="item_zz" :href="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[1].picUrl" data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15439064549673720.png&quot;,&quot;sequen&quot;:4,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;}">
-          <div class="m-lazyload img img-s m-lazyload-loaded" data-reactid=".0.4.1.$1.0.1.0.0">
-            <img class="swiper-lazy" :src="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[1].picUrl"
-                 style="display: inline;">
-          </div>
-        </a>
-          <a class="item_zz" :href="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[2].schemeUrl"
-             data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15439064549673720.png&quot;,&quot;sequen&quot;:4,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;}"
-             data-reactid=".0.4.1.$1.0.1.1">
-            <div class="m-lazyload img img-s m-lazyload-loaded" data-reactid=".0.4.1.$1.0.1.1.0"><img class="swiper-lazy"
-              :src="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[2].picUrl"
-              style="display: inline;margin-top: -0.04rem;"></div>
-          </a></div>
-      </div>
-    </div>
-
-    <div class="activity_03" v-if="msiteData.bigPromotionModule"
-      :style="`width:10rem;height:2.7111111111111112rem;background:url(${msiteData.bigPromotionModule.backgroundUrl});background-size:100% 100%;`">
-      <div>
-        <a class="promItem" style="width:50%;height:100%;" :href="msiteData.bigPromotionModule.bigPromotionList[2].data.contents[0].schemeUrl" data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15438955793172733.png&quot;,&quot;sequen&quot;:5,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/n5Ypk5ibe8.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/n5Ypk5ibe8.html&quot;}">
-        <div class="m-lazyload img m-lazyload-loaded">
-          <img class="swiper-lazy" data-reactid=".0.4.1.$2.0.$0.0.0" :src="msiteData.bigPromotionModule.bigPromotionList[2].data.contents[0].picUrl" style="display: inline;">
-        </div>
-        </a>
-        <a class="promItem" style="width:50%;height:100%;" :href="msiteData.bigPromotionModule.bigPromotionList[2].data.contents[1].schemeUrl" data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15435903918604513.png&quot;,&quot;sequen&quot;:6,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/WWK5JewfVF.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/WWK5JewfVF.html&quot;}">
-        <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.1.$2.0.$1.0">
-          <img class="swiper-lazy"
-          data-reactid=".0.4.1.$2.0.$1.0.0" :src="msiteData.bigPromotionModule.bigPromotionList[2].data.contents[1].picUrl"
-          style="display: inline;">
-        </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="m-freshmanModule m-indexFloor">
-      <div class="moduleTitle"><span class="txt">新人专享礼</span></div>
-      <div class="content">
-        <a class="left" href="javascript:void(0)">
-        <div class="name">新人专享礼包</div>
-        <div class="imgWrap">
-          <div class="m-lazyload img m-lazyload-loaded">
-            <img class="swiper-lazy" src="//yanxuan.nosdn.127.net/d074d02fb86bff9bfbf4fa3010d1e1e6.png"
-            style="display: inline;">
-          </div>
-          <div class="animate"></div>
-        </div>
-      </a>
-
-        <div class="right">
-          <div class="module1"><a class="m-activityItem" href="javascript:void(0)" style="background-size:100% 100%;">
-            <div class="picWrap">
-              <div class="m-lazyload pic m-lazyload-loaded">
-                <img class="swiper-lazy" src="http://yanxuan.nosdn.127.net/d50517d5b6d49c2d571cde37fdb54841.png" style="display: inline;"></div>
-              <div class="discount">
-                <div class="line1">¥137</div>
-                <div class="line2">¥249</div>
+        <div class="m-kingKongModule"
+             style="background-image:url(http://yanxuan.nosdn.127.net/56cd3b1e32f4d2edd03915efcef04de0.png);background-size:100% 100%;">
+          <div class="m-carousel kingkongCarousel">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide" v-if="msiteData.kingKongModule">
+                  <a v-for="(kingkongItem,index) in msiteData.kingKongModule.kingKongList" :key="index"
+                     class="kingkong-item mb-9" :href="kingkongItem.schemeUrl"
+                     data-yxstat="{&quot;event_name&quot;:&quot;click_index_kingkong&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;name&quot;:&quot;居家&quot;,&quot;picUrl&quot;:&quot;http://yanxuan.nosdn.127.net/98b6a6fc32f1fea861934816729e2cf5.png&quot;,&quot;sequen&quot;:1,&quot;schemeUrl&quot;:&quot;http://m.you.163.com/item/list?categoryId=1005000&amp;style=pd&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;http://m.you.163.com/item/list?categoryId=1005000&amp;style=pd&quot;}">
+                    <div class="icon">
+                      <img class="img" :src="kingkongItem.picUrl">
+                    </div>
+                    <div class="txt" style="color:#333333;">{{kingkongItem.text}}</div>
+                  </a>
+                </div>
               </div>
+              <div class="swiper-pagination"></div>
             </div>
-            <div class="cnt">
-              <div class="title">福利社</div>
-              <div class="subTitle">今日特价</div>
-              <span></span></div>
-          </a></div>
-          <div class="module2"><a class="m-activityItem" href="javascript:void(0)" style="background-size:100% 100%;">
-            <div class="picWrap">
-              <div class="m-lazyload pic m-lazyload-loaded"><img class="swiper-lazy"
-                src="http://yanxuan.nosdn.127.net/589f0990b8ba1d354a698731afacd2d4.png" style="display: inline;"></div>
-              <div class="discount">
-                <div class="line1">¥1</div>
-                <div class="line2">¥9</div>
+          </div>
+        </div>
+        <div
+          v-if="msiteData.bigPromotionModule"
+          class="doubleT"
+          style="width:10rem;height:4.408888888888889rem;background:url(https://yanxuan.nosdn.127.net/15435901919894506.png?imageView&amp;crop=0_0_750_496);background-size:100% 100%;"
+          data-reactid=".0.4.1.$0">
+          <div data-reactid=".0.4.1.$0.0">
+            <a class="promItem" style="width:100%;height:100%;"
+               :href="msiteData.bigPromotionModule.bigPromotionList[0].data.contents[0].schemeUrl"
+               data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15435902145614507.gif&quot;,&quot;sequen&quot;:1,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/35lg3M4T9f.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/35lg3M4T9f.html&quot;}"
+               data-reactid=".0.4.1.$0.0.$0">
+              <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.1.$0.0.$0.0">
+                <img :data-original="msiteData.bigPromotionModule.bigPromotionList[0].data.contents[0].picUrl"
+                     :data-src="msiteData.bigPromotionModule.bigPromotionList[0].data.contents[0].picUrl"
+                     class="swiper-lazy" :src="msiteData.bigPromotionModule.bigPromotionList[0].data.contents[0].picUrl"
+                     style="display: inline;">
               </div>
+            </a></div>
+        </div>
+
+        <div class="activity_02" v-if="msiteData.bigPromotionModule"
+             :style="`width:10rem;height:5.226666666666667rem;background:url(${msiteData.bigPromotionModule.backgroundUrl});background-size:100% 100%;`">
+          <div>
+            <a class="promItem promItem-ls"
+               :href="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[0].schemeUrl"
+               data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15439064549673720.png&quot;,&quot;sequen&quot;:4,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;}">
+              <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.1.$1.0.0.0">
+                <img class="swiper-lazy" :src="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[0].picUrl"
+                     style="display: inline;">
+              </div>
+            </a>
+            <div class="promItem promItem-ls"><a class="item_zz"
+                                                 :href="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[1].picUrl"
+                                                 data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15439064549673720.png&quot;,&quot;sequen&quot;:4,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;}">
+              <div class="m-lazyload img img-s m-lazyload-loaded" data-reactid=".0.4.1.$1.0.1.0.0">
+                <img class="swiper-lazy" :src="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[1].picUrl"
+                     style="display: inline;">
+              </div>
+            </a>
+              <a class="item_zz" :href="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[2].schemeUrl"
+                 data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15439064549673720.png&quot;,&quot;sequen&quot;:4,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/1Ysh5rCDy3.html&quot;}"
+                 data-reactid=".0.4.1.$1.0.1.1">
+                <div class="m-lazyload img img-s m-lazyload-loaded" data-reactid=".0.4.1.$1.0.1.1.0"><img
+                  class="swiper-lazy"
+                  :src="msiteData.bigPromotionModule.bigPromotionList[1].data.contents[2].picUrl"
+                  style="display: inline;margin-top: -0.04rem;"></div>
+              </a></div>
+          </div>
+        </div>
+
+        <div class="activity_03" v-if="msiteData.bigPromotionModule"
+             :style="`width:10rem;height:2.7111111111111112rem;background:url(${msiteData.bigPromotionModule.backgroundUrl});background-size:100% 100%;`">
+          <div>
+            <a class="promItem" style="width:50%;height:100%;"
+               :href="msiteData.bigPromotionModule.bigPromotionList[2].data.contents[0].schemeUrl"
+               data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15438955793172733.png&quot;,&quot;sequen&quot;:5,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/n5Ypk5ibe8.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/n5Ypk5ibe8.html&quot;}">
+              <div class="m-lazyload img m-lazyload-loaded">
+                <img class="swiper-lazy" data-reactid=".0.4.1.$2.0.$0.0.0"
+                     :src="msiteData.bigPromotionModule.bigPromotionList[2].data.contents[0].picUrl"
+                     style="display: inline;">
+              </div>
+            </a>
+            <a class="promItem" style="width:50%;height:100%;"
+               :href="msiteData.bigPromotionModule.bigPromotionList[2].data.contents[1].schemeUrl"
+               data-yxstat="{&quot;event_name&quot;:&quot;click_index_12atmosphere&quot;,&quot;event_action&quot;:&quot;click&quot;,&quot;page_name&quot;:&quot;index&quot;,&quot;parameters&quot;:{&quot;picUrl&quot;:&quot;https://yanxuan.nosdn.127.net/15435903918604513.png&quot;,&quot;sequen&quot;:6,&quot;schemeUrl&quot;:&quot;https://act.you.163.com/act/pub/WWK5JewfVF.html&quot;,&quot;userType&quot;:1},&quot;topage&quot;:&quot;https://act.you.163.com/act/pub/WWK5JewfVF.html&quot;}">
+              <div class="m-lazyload img m-lazyload-loaded" data-reactid=".0.4.1.$2.0.$1.0">
+                <img class="swiper-lazy"
+                     data-reactid=".0.4.1.$2.0.$1.0.0"
+                     :src="msiteData.bigPromotionModule.bigPromotionList[2].data.contents[1].picUrl"
+                     style="display: inline;">
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="m-freshmanModule m-indexFloor">
+          <div class="moduleTitle"><span class="txt">新人专享礼</span></div>
+          <div class="content">
+            <a class="left" href="javascript:void(0)">
+              <div class="name">新人专享礼包</div>
+              <div class="imgWrap">
+                <div class="m-lazyload img m-lazyload-loaded">
+                  <img class="swiper-lazy" src="//yanxuan.nosdn.127.net/d074d02fb86bff9bfbf4fa3010d1e1e6.png"
+                       style="display: inline;">
+                </div>
+                <div class="animate"></div>
+              </div>
+            </a>
+
+            <div class="right">
+              <div class="module1"><a class="m-activityItem" href="javascript:void(0)"
+                                      style="background-size:100% 100%;">
+                <div class="picWrap">
+                  <div class="m-lazyload pic m-lazyload-loaded">
+                    <img class="swiper-lazy" src="http://yanxuan.nosdn.127.net/d50517d5b6d49c2d571cde37fdb54841.png"
+                         style="display: inline;"></div>
+                  <div class="discount">
+                    <div class="line1">¥137</div>
+                    <div class="line2">¥249</div>
+                  </div>
+                </div>
+                <div class="cnt">
+                  <div class="title">福利社</div>
+                  <div class="subTitle">今日特价</div>
+                  <span></span></div>
+              </a></div>
+              <div class="module2"><a class="m-activityItem" href="javascript:void(0)"
+                                      style="background-size:100% 100%;">
+                <div class="picWrap">
+                  <div class="m-lazyload pic m-lazyload-loaded"><img class="swiper-lazy"
+                                                                     src="http://yanxuan.nosdn.127.net/589f0990b8ba1d354a698731afacd2d4.png"
+                                                                     style="display: inline;"></div>
+                  <div class="discount">
+                    <div class="line1">¥1</div>
+                    <div class="line2">¥9</div>
+                  </div>
+                </div>
+                <div class="cnt">
+                  <div class="title">新人拼团</div>
+                  <div class="subTitle"></div>
+                  <div class="tag">1元起包邮</div>
+                </div>
+              </a></div>
             </div>
-            <div class="cnt">
-              <div class="title">新人拼团</div>
-              <div class="subTitle"></div>
-              <div class="tag">1元起包邮</div>
-            </div>
-          </a></div>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -195,26 +242,37 @@
 
   export default {
     name: "MSite",
+    data(){
+      return{
+        isShowMore:false
+      }
+    },
+
     mounted() {
       //触发action
       this.$store.dispatch("getMsite");
 
     },
-    watch:{
-      msiteData:function () {
+
+    watch: {
+      msiteData: function () {
         this.$nextTick(() => {
           //todo:理解有问题 首页导航滑动
           new BScroll('.inner', {
             click: true,
             scrollX: true, // 水平滑动
           });
-          new Swiper('.swiper-container', {
+
+          //整个页面的滑动
+          new BScroll('.outer-wrap', {
+            click: true,
+          });
+
+          new Swiper('.swiper-container-horizontal', {
             loop: true, // 循环模式选项
             // 如果需要分页器
             pagination: {
-              //todo 轮播图和滑动导航条有问题，一开始不起作用，刷新一下就起作用
               el: '.swiper-pagination',
-
             }
           })
         })
@@ -222,6 +280,18 @@
     },
     computed: {
       ...mapState(["msiteData"])
+    },
+    methods:{
+      handleC(){
+        this.isShowMore=!this.isShowMore;
+        var div=document.querySelector(".showList")
+        if(this.isShowMore){
+          div.style.transform='rotate(180deg)';
+        }else{
+          div.style.transform='rotate(0deg)';
+        }
+
+      }
     }
   }
 </script>
@@ -283,9 +353,52 @@
     z-index: 2;
     background: #fff;
     margin-top: -.01333rem;
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+      opacity: 0;
+    }
+    .hiddenTabList
+      position: absolute;
+      z-index: 10;
+      background: #fff;
+      margin-top: -.01333rem;
+      .tabAlter
+        height: .8rem;
+        line-height: .8rem;
+        padding-left: .4rem;
+        font-size: .37333rem;
+      .moreCate
+        padding-top: .32rem;
+        overflow: hidden;
+        .cateTag
+          width: 2rem;
+          height: .74667rem;
+          line-height: .74667rem;
+          text-align: center;
+          float: left;
+          margin-bottom: .53333rem;
+          margin-left: .4rem;
+          background: #FAFAFA;
+          border: 1px solid #CCC;
+          border-radius: .05333rem;
+          font-size 12px
     .m-tabs
       padding-right: 1.33333rem;
       width: 100%;
+      position relative
+      .showList
+        position absolute
+        right .5rem
+        top .3rem
+        width .6rem
+        height .6rem
+        z-index: 20
+        img
+          display block
+          width 100%
+          height 100%
       header
         display: flex;
         flex-flow: row nowrap;
