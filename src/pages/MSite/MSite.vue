@@ -258,6 +258,7 @@
       msiteData: function () {
         this.$nextTick(() => {
           //todo:理解有问题 首页导航滑动
+
           new BScroll('.inner', {
             click: true,
             scrollX: true, // 水平滑动

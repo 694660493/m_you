@@ -48,7 +48,6 @@
         </div>
         <!--下面结构-->
         <div v-else>
-
           <div class="cateList" v-for="(category,index) in categoryData[getIndex].subCateList" :key="index">
             <div class="hd">{{category.header}}</div>
             <ul class="list">

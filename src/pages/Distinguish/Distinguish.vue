@@ -45,7 +45,6 @@
         <li><a href="/#/distinguish?tab=3">上新</a></li>
         <li><a href="/#/distinguish?tab=4">晒单</a></li>
         <li><a href="/#/distinguish?tab=5">HOME</a></li>
-
       </ul>
     </div>
     <!--三石福利价-->
