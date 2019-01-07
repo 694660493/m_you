@@ -48,6 +48,7 @@
         name: "MainFooter",
         methods:{
           goTo(url) {
+            console.log(2,this.$router);
             this.$router.replace(url)
           },
           isEvent(path) {

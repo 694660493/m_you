@@ -13,13 +13,24 @@ const notfount=()=> import("../components/notfount/notfount.vue")
 
 Vue.use(VueRouter) //在vue中使用路由
 
-export default new VueRouter({
+let router= new VueRouter({
 
   // 将路由和组件对应映射起来
   routes:[
     {path:"/msite",component:MSite},
     {path:"/category",component:Category},
-    {path:"/distinguish",component:Distinguish},
+    {path:"/distinguish",component:Distinguish,
+      children:[
+        {
+          path:"typeA",
+          component:Distinguish
+        },
+        {
+          path:"typeB",
+          component:Distinguish
+        }
+      ]
+    },
     {path:"/cart",component:Cart},
     {path:"/profile",component:Profile},
     {path:"/login",component:Login},
@@ -29,3 +40,12 @@ export default new VueRouter({
 
   ]
 })
+
+router.beforeEach((to,from,next)=>{
+  console.log(123);
+  // next({ path: '/' })
+  // next(false);//中断当前导航
+  next();
+})
+
+export default router;

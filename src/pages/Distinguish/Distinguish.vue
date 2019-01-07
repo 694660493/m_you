@@ -184,8 +184,6 @@
         this.shiwuData.forEach((shiwuItem, index) => {
           arr = arr.concat(shiwuItem.topics)
         })
-
-
         return arr;
       }
     },
